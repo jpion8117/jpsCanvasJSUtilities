@@ -6,6 +6,12 @@
  */
 class FGObject extends GameObjectBase {
     /**
+     * @type {string} entity display color. By default this is the color of the box that 
+     * is rendered by the default implementation of the render function.
+     */
+    color;
+
+    /**
      * location of the foreground object within the visiable scene
      */
     location = {
@@ -77,11 +83,19 @@ class FGObject extends GameObjectBase {
         return box;
     }
 
-    proc() {
-        //respond to collisions
-    }
+    /**
+     * Override to respond to collisions or other game data.
+     */
+    proc() {}
 
+    /**
+     * Default render method: override for more advanced implementations including complex 
+     * shapes or using image based graphics like sprite sheets/tilemaps
+     */
     render() {
+        let box = this.getBoundingBox();
+        this.gameCore.pen.fillStyle = this.color;
+        this.gameCore.pen.fillRect(box.left, box.top, box.left + this.dimensions.w, box.top + this.dimensions.h);
     }
 }
 

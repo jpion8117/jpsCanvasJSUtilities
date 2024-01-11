@@ -19,13 +19,13 @@ class GameObjectBase {
      * @abstract 
      * @type {function | null} Process the entity frame
      */
-    proc;
+    proc = null;
 
     /**
      * @abstract
      * @type {function | null} Render entity frame if it is renderable. When set to null this call will be ignored.
      */
-    render;
+    render = null;
 
     /**
      * Base constructor for all game objects. Ensures child classes have access to the GameCore object they belong to 

@@ -4,11 +4,10 @@ class ResourceFile extends GameObjectBase {
      * File URL
      * @type {string}
      */
-    URL;
+    url;
 
     /**
-     * number of entities are using this resource.
-     * @type {number}
+     * @type {HTMLImageElement} Image associated with this resource.
      */
-    static numberOfEntities;
+    image;
 }

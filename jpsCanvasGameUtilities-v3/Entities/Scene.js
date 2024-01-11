@@ -1,6 +1,12 @@
 
 class Scene extends GameObjectBase{
     /**
+     * @type {string | null} allows a scene to override the GameCore background set by the GameCore 
+     * without changing it.
+     */
+    backgroundColor = null;
+
+    /**
      * Entities tracked by game
      */
     entities = {
@@ -24,8 +30,47 @@ class Scene extends GameObjectBase{
 
         /**
          * Total number of entities being tracked.
-         * @type {number}
+         * @param {Array.<string> | string | null} types type(s) of entities to count. Leave blank to count all.
+         * @returns {number}
          */
-        totalEntities: 0
+        getTotalEntities: function(types = null) {
+            if (types !== null) {
+                var selectiveTotal = 0;
+                if (typeof(types) === "string") {
+                    if (this[types]) selectiveTotal += this[types].length;
+                }
+                else { 
+                    types.forEach(entityType => {
+                        if (this[entityType]) selectiveTotal += this[entityType].length;
+                    });
+                }
+
+                return selectiveTotal;
+            }
+
+            return this.foreground.length + this.background.length + this.resoruces.length;
+        }
     };
+
+    proc() {
+        //check collisions
+        //respond to collisions.
+    }
+
+    render() {
+        if (this.backgroundColor || this.backgroundColor !== this.gameCore.backgroundColor) {
+            this.gameCore.pen.fillStyle = this.backgroundColor;
+            this.gameCore.pen.fillRect(0, 0, this.gameCore.paperSize.width, this.gameCore.paperSize.height);
+        }
+
+        //render background entities
+        this.entities.background.forEach(bgEntity => {
+            if (typeof(bgEntity.render) === "function") bgEntity.render();
+        });
+
+        //render foreground entities
+        this.entities.foreground.forEach(fgEntity => {
+            if (typeof(fgEntity.render) === "function") fgEntity.render();
+        }); 
+    }
 }

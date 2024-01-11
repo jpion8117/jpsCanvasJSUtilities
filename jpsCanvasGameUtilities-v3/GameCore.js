@@ -86,7 +86,7 @@ class GameCore{
     /**
      * @type {Array.<InputAction>} Bound inputs currently being tracked.
      */
-    inputs;
+    inputQueue;
 
     /**
      * Gets a unique identifier for an entity.
@@ -177,21 +177,27 @@ class GameCore{
             console.log(`GameCore associated with canvasId:${this.paper.id} crashed: No scenes defined!`);
         }
 
-        //check inputs
-        this.pen.fillStyle = this.backgroundColor;
-        this.pen.fillRect(0, 0, )
+        //process inputs
+        this.inputQueue.forEach(action => {
+            action.proc();
+            if (action.complete) {
+                this.inputQueue.splice(this.inputQueue.indexOf(action), 1);
+            }
+        });
 
         //clear screen
-        
+        this.pen.fillStyle = this.backgroundColor;
+        this.pen.fillRect(0, 0, this.paperSize.width, this.paperSize.height)
+
         //update scene
+        this.scenes[this.currentScene].proc();
+
+        //render scene
+        this.scenes[this.currentScene].render();
 
         //increment framecounter
         this.framesCount++;
     }
-}
-
-class FGObject extends GameObjectBase {
-
 }
 
 class BGObject extends GameObjectBase {
