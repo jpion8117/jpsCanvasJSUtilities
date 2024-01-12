@@ -86,7 +86,7 @@ class FGObject extends GameObjectBase {
     /**
      * Override to respond to collisions or other game data.
      */
-    proc() {}
+    proc = null;
 
     /**
      * Default render method: override for more advanced implementations including complex 
