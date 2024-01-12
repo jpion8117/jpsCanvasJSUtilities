@@ -447,8 +447,3 @@ function GameSprite(url, frameW, frameH, columns, rows, options = {})
     if(this.uniqueSprite)
         Sprite.spriteRegistration.push(this);
 }
-
-class GameText extends GameFGObject
-{
-    
-}
