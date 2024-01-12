@@ -177,12 +177,39 @@ class GameCore{
             console.log(`GameCore associated with canvasId:${this.paper.id} crashed: No scenes defined!`);
         }
 
+        //separate data entities
+        var startDE = []; var afterInputDe = []; var endDE = [];
+        this.scenes[this.currentScene].entities.dataEntities.forEach(dataEntity => {
+            switch (dataEntity.procLocation)
+            {
+                case procLoc.start:
+                    startDE.push(dataEntity.proc);
+                    break;
+                case procLoc.afterInput:
+                    afterInputDe.push(dataEntity.proc);
+                    break;
+                case procLoc.end:
+                    endDE.push(dataEntity.proc);
+                    break;
+            }
+        });
+
+        //process start DataEntities
+        startDE.forEach(proc => {
+            if (typeof(proc) === "function") proc();
+        });
+
         //process inputs
         this.inputQueue.forEach(action => {
             action.proc();
             if (action.complete) {
                 this.inputQueue.splice(this.inputQueue.indexOf(action), 1);
             }
+        });
+
+        //process after input DataEntities
+        afterInputDe.forEach(proc => {
+            if (typeof(proc) === "function") proc();
         });
 
         //clear screen
@@ -195,11 +222,12 @@ class GameCore{
         //render scene
         this.scenes[this.currentScene].render();
 
+        //process end DataEntities
+        endDE.forEach(proc => {
+            if (typeof(proc) === "function") proc();
+        });
+
         //increment framecounter
         this.framesCount++;
     }
-}
-
-class BGObject extends GameObjectBase {
-
 }

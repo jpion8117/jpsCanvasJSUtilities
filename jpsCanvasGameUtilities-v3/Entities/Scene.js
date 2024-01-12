@@ -1,6 +1,13 @@
 
 class Scene extends GameObjectBase{
     /**
+     * 
+     * @param {GameCore} gameCore 
+     */
+    constructor(gameCore) {
+        super(gameCore);
+    }
+    /**
      * @type {string | null} allows a scene to override the GameCore background set by the GameCore 
      * without changing it.
      */
@@ -29,6 +36,11 @@ class Scene extends GameObjectBase{
         resoruces,
 
         /**
+         * @type {Array.<DataEntity>} 
+         */
+        dataEntities,
+
+        /**
          * Total number of entities being tracked.
          * @param {Array.<string> | string | null} types type(s) of entities to count. Leave blank to count all.
          * @returns {number}
@@ -54,7 +66,7 @@ class Scene extends GameObjectBase{
 
     proc() {
         //check collisions
-
+        
         //process forground entity changes
         this.entities.foreground.forEach(element => {
             if(typeof(element) === "function") element.proc()

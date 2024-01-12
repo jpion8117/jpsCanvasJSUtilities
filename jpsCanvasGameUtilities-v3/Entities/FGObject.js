@@ -6,6 +6,19 @@
  */
 class FGObject extends GameObjectBase {
     /**
+     * @constructor
+     * @param {GameCore} gameCore 
+     * @param {Scene} scene 
+     */
+    constructor(gameCore, scene) {
+        super(gameCore);
+        this.scene = scene;
+
+        //register the entity with it's scene
+        this.scene.entities.foreground.push(this);
+    }
+
+    /**
      * @type {string} entity display color. By default this is the color of the box that 
      * is rendered by the default implementation of the render function.
      */
