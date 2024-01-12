@@ -54,7 +54,11 @@ class Scene extends GameObjectBase{
 
     proc() {
         //check collisions
-        //respond to collisions.
+
+        //process forground entity changes
+        this.entities.foreground.forEach(element => {
+            if(typeof(element) === "function") element.proc()
+        });
     }
 
     render() {
