@@ -64,9 +64,23 @@ class Scene extends GameObjectBase{
         }
     };
 
+    /**
+     * Removes a ResourceFile from loaded resources via its uId
+     * @param {number} uId 
+     */
+    removeResource(uId) {
+        for (let i = 0; i < this.entities.resoruces.length; i++) {
+            if (this.entities.resoruces[i].uId == uId)
+            {
+                this.entities.resoruces.splice(i, 1);
+                return;
+            }
+        }
+    }
+
     proc() {
         //check collisions
-        
+
         //process forground entity changes
         this.entities.foreground.forEach(element => {
             if(typeof(element) === "function") element.proc()

@@ -68,6 +68,11 @@ class BGObject extends GameObjectBase {
     scene;
 
     /**
+     * @type {ResourceFile | null}
+     */
+    resource = null;
+
+    /**
      * Gets entity's boundingBox
      * @returns {boundingBox}
      */

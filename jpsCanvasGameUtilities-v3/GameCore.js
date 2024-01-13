@@ -227,6 +227,11 @@ class GameCore{
             if (typeof(proc) === "function") proc();
         });
 
+        //unload unused resource files
+        this.scenes[this.currentScene].entities.resoruces.forEach(resource => {
+            resource.proc()
+        });
+
         //increment framecounter
         this.framesCount++;
     }
