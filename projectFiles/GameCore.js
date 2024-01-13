@@ -1,10 +1,13 @@
 
 
 /**
+ * @preserve
  * Core controller class of the game. Handles all settings, timings, and orchestration of game entities.
  */
 class GameCore{
     /**
+     * @preserve
+     *@preserve
      * @type {Array.<string>} Protected members that can not be overridden by the initializer options!
      */
     static protectedKeys = [
@@ -19,17 +22,20 @@ class GameCore{
     ]
 
     /**
-     * @type {HTMLCanvasElement | null} The HTML5 canvas the game will be rendering to.
+     * @preserve
+     *@type {HTMLCanvasElement | null} The HTML5 canvas the game will be rendering to.
      */
     paper;
 
     /**
-     * @type {CanvasRenderingContext2D | null} Canvas context for rendering content to canvas
+     * @preserve
+     *@type {CanvasRenderingContext2D | null} Canvas context for rendering content to canvas
      */
     pen;
 
     /**
-     * Size of the canvas.
+     * @preserve
+     *Size of the canvas.
      */
     paperSize = {
         /**
@@ -45,51 +51,60 @@ class GameCore{
 
 
     /**
-     * @private {number} Tracks the next entity Id to be assigned. IMPORTANT! DO NOT ASSIGN DIRECTLY FROM THIS! Use the 
+     * @preserve
+     *@private {number} Tracks the next entity Id to be assigned. IMPORTANT! DO NOT ASSIGN DIRECTLY FROM THIS! Use the 
      * AssignId method to ensure this counter is incremented properly and all entities have a unique 
      * Id associated with them!
      */
     static nextId = 0;
 
     /**
-     * @type {number} Frames per second
+     * @preserve
+     *@type {number} Frames per second
      */
     framerate = 60;
 
     /**
-     * @type {number} Number of frames rendered. Used for tracking actual framerate delivered and for actions that 
+     * @preserve
+     *@type {number} Number of frames rendered. Used for tracking actual framerate delivered and for actions that 
      * happen every n number of frames
      */
     framesCount = 0;
 
     /**
-     * @type {number} interval Id used to stop the game loop if needed
+     * @preserve
+     *@type {number} interval Id used to stop the game loop if needed
      */
     interval;
 
     /**
-     * @type {string} Color string defining the desired default color
+     * @preserve
+     *@type {string} Color string defining the desired default color
      */
     backgroundColor = "white";;
 
     /**
-     * @type {Array.<Scene>} Individual scenes that make up a game. At least 
+     * @preserve
+     *@type {Array.<Scene>} Individual scenes that make up a game. At least 
      * one scene must be added to the gameCore for any functionality. 
      */
     scenes;
 
     /**
-     * @type {number} Index number of the current scene.
+     * @preserve
+     *@type {number} Index number of the current scene.
      */
     currentScene;
 
     /**
-     * @type {Array.<InputAction>} Bound inputs currently being tracked.
+     * @preserve
+     *@type {Array.<InputAction>} Bound inputs currently being tracked.
      */
     inputQueue;
 
     /**
-     * Gets a unique identifier for an entity.
+     * @preserve
+     *Gets a unique identifier for an entity.
      * @returns {number}
      */
     getUniqueId() {
@@ -99,7 +114,8 @@ class GameCore{
     }
 
     /**
-     * Creates and initializes a new GameCore instance with the provided options
+     * @preserve
+     *Creates and initializes a new GameCore instance with the provided options
      * @param {string} canvasId HTML id tag used to target the canvas
      * @param {GameSettings | Object.any} options object containing any number of options that you would like to set. NOTE:
      * options MUST contain a width and height key-value pair to initialize properly. Even if they are set to null! It is 

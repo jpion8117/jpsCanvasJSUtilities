@@ -4,27 +4,31 @@
  */
 class GameSettings {
     /**
-     * Width of the canvas, if set to null, the width of the canvas will be the width defined in 
+     * @preserve
+     *Width of the canvas, if set to null, the width of the canvas will be the width defined in 
      * the HTML/CSS for the page
      * @type {number}
      */
     width = null;
     
     /**
-     * Height of the canvas, if set to null, the height of the canvas will be the height defined in 
+     * @preserve
+     *Height of the canvas, if set to null, the height of the canvas will be the height defined in 
      * the HTML/CSS for the page
      * @type {number}
      */
     height = null;
 
     /**
-     * Color string defining the desired default color
+     * @preserve
+     *Color string defining the desired default color
      * @type {string}
      */
     backgroundColor = "white";
 
     /**
-     * Frames per second
+     * @preserve
+     *Frames per second
      * @type {number} 
      */
     framerate = 60;

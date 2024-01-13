@@ -5,23 +5,27 @@ class ResourceFile extends GameObjectBase {
     }
 
     /**
-     * File URL
+     * @preserve
+     *File URL
      * @type {string}
      */
     url;
 
     /**
-     * @type {HTMLImageElement} Image associated with this resource.
+     * @preserve
+     *@type {HTMLImageElement} Image associated with this resource.
      */
     image;
 
     /**
-     * @type {Scene} Scene this resource belongs to.
+     * @preserve
+     *@type {Scene} Scene this resource belongs to.
      */
     scene;
 
     /**
-     * Checks to see if resource is still in use and if not it will delete itself
+     * @preserve
+     *Checks to see if resource is still in use and if not it will delete itself
      */
     proc() {
         let inUse = false;

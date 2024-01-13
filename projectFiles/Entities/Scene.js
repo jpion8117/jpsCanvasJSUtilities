@@ -1,20 +1,23 @@
 
 class Scene extends GameObjectBase{
     /**
-     * 
+     * @preserve
+     *
      * @param {GameCore} gameCore 
      */
     constructor(gameCore) {
         super(gameCore);
     }
     /**
-     * @type {string | null} allows a scene to override the GameCore background set by the GameCore 
+     * @preserve
+     *@type {string | null} allows a scene to override the GameCore background set by the GameCore 
      * without changing it.
      */
     backgroundColor = null;
 
     /**
-     * Entities tracked by game
+     * @preserve
+     *Entities tracked by game
      */
     entities = {
         /**
@@ -65,7 +68,8 @@ class Scene extends GameObjectBase{
     };
 
     /**
-     * Removes a ResourceFile from loaded resources via its uId
+     * @preserve
+     *Removes a ResourceFile from loaded resources via its uId
      * @param {number} uId 
      */
     removeResource(uId) {

@@ -4,37 +4,40 @@
  */
 class InputAction {
     /**
-     * Name of the input action
+     * @preserve
+     *Name of the input action
      * @type {string}
      */
     keyword;
 
     /**
-     * @type {boolean} marks when an input action can be removed from the queue.
+     * @preserve
+     *@type {boolean} marks when an input action can be removed from the queue.
      */
     complete;
 
     /**
-     * @abstract
+     * @preserve
+     *@abstract
      * @type {function} 
      * Process the input's action
      */
     proc;
 
     /**
-     * Creates an InputAction NOTE: THIS SHOULD NOT BE USED ON ITS OWN, USE 'bind' TO BOTH CREATE THE INPUT AND BIND IT 
+     * @preserve
+     *Creates an InputAction NOTE: THIS SHOULD NOT BE USED ON ITS OWN, USE 'bind' TO BOTH CREATE THE INPUT AND BIND IT 
      * TO A GameCore!!!
-     * @param {GameCore} gameCore GameCore object this input is being monitored on.
      * @param {string} keyword Call name used to identfy this action. Ex 'up' for moving player up or 'attack' for an attack. 
      * The same name can be used by multiple input actions thus binding multiple keys to a single action. 
      */
-    constructor(gameCore, keyword) {
-        super(gameCore);
+    constructor(keyword) {
         this.keyword = keyword;
     }
 
     /**
-     * Creates a bound input that is added to the GameCore's monitored inputs
+     * @preserve
+     *Creates a bound input that is added to the GameCore's monitored inputs
      * @param {GameCore} gameCore GameCore object this input is being monitored on.
      * @param {string} keyword keyword used to identfy this action. Ex 'up' for moving player up or 'attack' for an attack. 
      * The same name can be used by multiple input actions thus binding multiple keys to a single action. 

@@ -5,7 +5,8 @@
  */
 class DataEntity extends GameObjectBase {
     /**
-     * 
+     * @preserve
+     *
      * @param {GameCore} gameCore 
      * @param {Scene} scene 
      * @param {procLoc} procLocation 
@@ -19,12 +20,14 @@ class DataEntity extends GameObjectBase {
     }
 
     /**
-     * @type {Scene}
+     * @preserve
+     *@type {Scene}
      */
     scene;
 
     /**
-     * @type {procLoc} Where should entity process data.
+     * @preserve
+     *@type {procLoc} Where should entity process data.
      */
     procLocation;
 }
