@@ -11,8 +11,8 @@ class BGObject extends GameObjectBase {
     /**
      * @preserve
      *@constructor
-     * @param {GameCore} gameCore 
-     * @param {Scene} scene 
+     * @param {GameCore} gameCore GameCore object associated with this object.
+     * @param {Scene} scene Scene associated with this object.
      */
     constructor(gameCore, scene) {
         super(gameCore);

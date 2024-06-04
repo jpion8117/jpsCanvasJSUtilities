@@ -1,7 +1,18 @@
 
 class ResourceFile extends GameObjectBase {
-    constructor(gameObject, scene) {
-
+    /**
+     * @preserve
+     * @constructor
+     * @param {GameCore} gameCore GameCore object associated with this object.
+     * @param {Scene} scene Scene associated with this object.
+     * @param {string} URL Url of the resource to load.
+     */
+    constructor(gameCore, scene, url) {
+        super(gameCore);
+        this.scene = scene;
+        
+        //register the entity with it's scene
+        this.scene.entities.resoruces.push(this);
     }
 
     /**
@@ -46,7 +57,7 @@ class ResourceFile extends GameObjectBase {
             }
         }
 
-        //if no match was found the entity will remove itself
+        //if no match was found the entity will unalive itself
         if (!inUse) {
             this.scene.removeResource(this.uId);
         }

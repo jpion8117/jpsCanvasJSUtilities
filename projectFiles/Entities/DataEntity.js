@@ -6,10 +6,11 @@
 class DataEntity extends GameObjectBase {
     /**
      * @preserve
-     *
-     * @param {GameCore} gameCore 
-     * @param {Scene} scene 
-     * @param {procLoc} procLocation 
+     * @param {GameCore} gameCore GameCore object associated with this object.
+     * @param {Scene} scene Scene associated with this object.
+     * @param {procLoc} procLocation  Location within game loop where the data 
+     * should be handled (procLoc.start for begining of loop, procLoc.afterInput 
+     * for after user input processing, procLoc.end after all other entities are processed)
      */
     constructor(gameCore, scene, procLocation) {
         super(gameCore);

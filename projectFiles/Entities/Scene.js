@@ -1,8 +1,12 @@
-
+/**
+ * Scenes represent any set of coordinated actions within the game. This can be as simple as a prescripted set of actions without any 
+ * input (cutscene) or as detailed as a full side scrolling level in a platformer.
+ * @preserve
+ * @extends GameObjectBase
+ */
 class Scene extends GameObjectBase{
     /**
      * @preserve
-     *
      * @param {GameCore} gameCore 
      */
     constructor(gameCore) {
@@ -66,6 +70,16 @@ class Scene extends GameObjectBase{
             return this.foreground.length + this.background.length + this.resoruces.length;
         }
     };
+
+    addResource(url) {
+        // check if the resourse is already loaded
+        for (let i = 0; i < this.entities.resoruces.length; ++i) {
+            if (this.entities.resoruces[i].url === url)
+                return this.entities.resoruces[i];
+        }
+
+
+    }
 
     /**
      * @preserve
